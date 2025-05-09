@@ -417,6 +417,37 @@
         border: none;
     }
 
+     /* ===== ESTILOS PARA A SEÇÃO DE INSCRIÇÕES ===== */
+     #inscrições {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--section-bg);
+    }
+
+    #inscrições .photo-grid {
+      max-width: 600px; /* Largura máxima do container */
+      margin: 0 auto;   /* Centraliza horizontalmente */
+      padding: 20px;
+      background: var(--section-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    #inscrições .photo-grid img {
+      width: 100%;
+      max-width: 500px; /* Largura máxima da imagem */
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      border: 2px solid #0077cc; /* Borda azul (opcional) */
+    }
+
+    #inscrições .photo-grid img:hover {
+      transform: scale(1.02); /* Efeito de zoom suave */
+      box-shadow: 0 8px 16px rgba(0, 119, 204, 0.2);
+    }
+  
+
   </style>
    
   <!-- Redirecinonamento E-mail-->
@@ -486,10 +517,14 @@
     </div>
   </section>
 
-  <section>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSez843kvOc0Ieut47ZnjM99z_-dPF8y00uzLbQz_6VxSgRnVw/viewform?usp=header" target="_blank">
-      <img src="Encontro com Deus.png" alt="Evento">
-    </a>
+  <section id="inscrições">
+    <h2>Eventos</h2> <!-- Adicionei um título -->
+    <div class="photo-grid">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSez843kvOc0Ieut47ZnjM99z_-dPF8y00uzLbQz_6VxSgRnVw/viewform?usp=header" target="_blank">
+          <img src="Enconto com Deus.jpeg" alt="Evento Encontro com Deus">
+      </a>
+    </div>
+    <p style="margin-top: 1rem;">Clique na imagem para se inscrever</p> <!-- Texto adicional -->
   </section>
 
   <section id="Sermão">
@@ -524,15 +559,16 @@
       </table>
     </div>
   </section>
-
+  
+  <!-- Fotos e Videos-->
   <section id="galeria">
     <h2>Posts e informativos</h2>
     <div class="photo-grid">
       <a href="https://www.instagram.com/p/DHVl9rjpyCJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" data-lightbox="galeria">
         <img src="Palavra.png" alt="Culto">
       </a>
-      <a href="https://www.instagram.com/p/DJZJ8lGuCaG/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==" target="_blank" data-lightbox="galeria">
-        <img src="Encontro com Deus.png" alt="Evento">
+      <a href="#" target="_blank" data-lightbox="galeria">
+        <img src="#" alt="Evento">
       </a>
       <video controls width="100%">
         <source src="Celula Shequinar .mp4" type="video/mp4">
