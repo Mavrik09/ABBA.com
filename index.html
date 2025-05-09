@@ -49,13 +49,31 @@
       z-index: 1000;
     }
 
-    .nav-logo {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 40px;
-      z-index: 1001;
+    .titulo-principal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap; /* Quebra linha se necessário */
+      text-align: center;
+    margin-top: 80px; /* margem para não colidir com menu fixo */
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .titulo-principal {
+      flex-direction: column;
     }
+  
+    .logo {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
 
     .nav-links {
       display: flex;
@@ -377,7 +395,7 @@
 
     nav ul li {
         border-top: 1px solid #555;
-        padding: 0.5rem 0;
+        padding: 0rem 0;
     }
 
      /*Video de momentos inportantes*/
@@ -427,8 +445,6 @@
       <a href="#redes-sociais">Redes Sociais</a>
     </div>
 
-    <img src="imagem_circular_final.png" alt="Logo" class="nav-logo">
-
     <div class="nav-right">
       <a href="https://maps.app.goo.gl/SikuKhM3xMhrfFPp6" target="_blank">
         <i class="fas fa-map-marker-alt"></i>
@@ -439,8 +455,15 @@
     </div>
   </nav>
 
+  
+  
   <section id="inicio">
-    <h1>Bem-vindo à Igreja ABBA pai</h1>
+
+    <div class="titulo-principal">
+      <img src="imagem_circular_final.png" alt="Logo" class="logo">
+      <h1>Bem-vindo à Igreja ABBA pai</h1>
+    </div>
+    
     <p>Um lugar de fé, esperança e amor. Junte-se a nós, vem ser família com a gente.</p>
 
     
@@ -461,6 +484,12 @@
         allowfullscreen>
       </iframe>
     </div>
+  </section>
+
+  <section>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSez843kvOc0Ieut47ZnjM99z_-dPF8y00uzLbQz_6VxSgRnVw/viewform?usp=header" target="_blank">
+      <img src="Encontro com Deus.png" alt="Evento">
+    </a>
   </section>
 
   <section id="Sermão">
