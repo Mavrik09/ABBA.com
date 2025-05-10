@@ -375,7 +375,8 @@
         height: auto;
       }
     }
-
+    
+     /*Formatação imagem post e informativos*/
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -391,6 +392,12 @@
 
     .photo-grid a:hover {
       transform: scale(1.05);
+    }
+    
+    img, video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
 
     form {
