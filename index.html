@@ -373,6 +373,49 @@
         padding: 1rem;
       }
     }
+    /* Adicione isso ao seu CSS existente */
+
+    /* Corrige problemas de overflow horizontal */
+    html, body {
+       width: 100%;
+       overflow-x: hidden;
+    }
+
+    /* Ajuste o padding do body para dispositivos móveis */
+    @media (max-width: 767px) {
+      body {
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+  
+      /* Ajuste adicional para o menu fixo */
+     section {
+        padding-top: 5rem; /* Reduz um pouco para mobile */
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+  
+      /* Garante que o conteúdo não fique escondido atrás do menu */
+     .titulo-principal {
+        margin-top: 70px; /* Ajuste para o menu fixo */
+        padding: 0 10px;
+      }
+    }
+
+    /* Garante que imagens e vídeos não ultrapassem a largura da tela */
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+
+   /* Corrige possíveis problemas com tabelas em mobile */
+   .table-container {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
 
     .container {
         flex-direction: column;
