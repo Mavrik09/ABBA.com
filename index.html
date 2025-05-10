@@ -133,18 +133,25 @@
     .live-stream {
       position: relative;
       margin: 2rem 0;
+      width: 100%;
     }
 
-    .live-badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #ff0000;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 5px;
-      z-index: 1;
-      animation: pulse 1.5s infinite;
+     /* Substitua o iframe atual por este */
+    .live-stream iframe {
+       width: 100%;
+       aspect-ratio: 16/9; /* Mantém a proporção 16:9 */
+       border: none;
+       border-radius: 8px;
+    }
+
+    /* Adicione esta media query para ajustes em mobile */
+    @media (max-width: 600px) {
+      .live-stream {
+        margin: 1rem 0;
+      }
+      .live-stream iframe {
+        height: auto;
+      }
     }
 
     .photo-grid {
@@ -373,7 +380,61 @@
         padding: 1rem;
       }
     }
+    /* Adicione isso ao seu CSS existente */
+
+    /* Corrige problemas de overflow horizontal */
+    html, body {
+       width: 100%;
+       overflow-x: hidden;
+    }
+
+    /* Ajuste o padding do body para dispositivos móveis */
+    @media (max-width: 767px) {
+      body {
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+  
+      /* Ajuste adicional para o menu fixo */
+     section {
+        padding-top: 5rem; /* Reduz um pouco para mobile */
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+  
+      /* Garante que o conteúdo não fique escondido atrás do menu */
+     .titulo-principal {
+        margin-top: 70px; /* Ajuste para o menu fixo */
+        padding: 0 10px;
+      }
+    }
+
+    /* Garante que imagens e vídeos não ultrapassem a largura da tela */
+    img, video, iframe {
+      max-width: 100%;
+      height: auto;
+    }
+
+   /* Corrige possíveis problemas com tabelas em mobile */
+   .table-container {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     
+    }
+    /* Corrige zoom em inputs em iOS */
+    @media (max-width: 767px) {
+      input, textarea, button {
+        font-size: 16px; /* Evita zoom automático no iOS */
+      }
+  
+      /* Corrige altura de elementos em mobile */
+      select, input[type="text"], input[type="email"], textarea {
+         min-height: 44px; /* Tamanho mínimo para toque */
+      }
+}   
 
     .container {
         flex-direction: column;
@@ -472,9 +533,12 @@
       font-size: 0.9em;
       color: #777;
     }
-
+    
+    /*Palavras dos Cultos*/
+    
     .links {
       display: inline-block;
+      width: calc(50% - 10px); /* Divide a largura igualmente com margem */
       margin-top: 10px;
       padding: 8px 15px;
       background-color: #006699;
@@ -482,11 +546,37 @@
       text-decoration: none;
       border-radius: 5px;
       transition: background 0.3s;
+      text-align: center;
+      box-sizing: border-box;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .links:hover {
       background-color: #004d66;
     }
+
+    /* Container para os links */
+    .links-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      width: 100%;
+      max-width: 900px; /* A mesma largura máxima da seção */
+      margin-top: 15px;
+    }
+    
+    @media (max-width: 600px) {
+      .links-wrapper {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .links {
+        width: 100%;
+      }
+    }
+    
   </style>
   
 
@@ -511,9 +601,10 @@
   <nav>
     <div class="nav-links">
       <a href="#inicio">Início</a>
+      <a href="inscrições">Eventos</a>
       <a href="#Sermão">Palavras dos Cultos</a>
       <a href="#dias-culto">Cultos</a>
-      <a href="#galeria">Galeria</a>
+      <a href="#galeria">Posts</a>
       <a href="#contato">Contato</a>
       <a href="#redes-sociais">Redes Sociais</a>
     </div>
@@ -579,10 +670,12 @@
          Entendemos que a fé não é apenas crer, mas agir conforme a confiança em Deus.
       </p>
       <img src="https://via.placeholder.com/600x300?text=Imagem+da+Pregação" alt="Imagem do culto">
-      <p>
-        <a class="links" href="#" target="_blank">🎥 Ver vídeo da pregação</a>
-        <a class="links" href="#" target="_blank">📄 Baixar PDF do esboço</a>
-      </p>
+      <div class="links-container">
+        <div class="links-wrapper">
+          <a class="links" href="https://youtube.com/algumvideo" target="_blank">🎥 Ver vídeo da pregação</a>
+          <a class="links" href="#" target="_blank">📄 Baixar PDF do esboço</a>
+        </div>
+      </div>
     </div>
 
     <div class="pregacao">
@@ -594,7 +687,7 @@
       </p>
       <img src="https://via.placeholder.com/600x300?text=Outra+Imagem" alt="Imagem do culto">
       <p>
-        <a class="links" href="#" target="_blank">🎥 Assistir no YouTube</a>
+        <a class="links" href="https://youtube.com/outrovideo" target="_blank">🎥 Assistir no YouTube</a>
         <a class="links" href="#" target="_blank">📖 Versículos citados</a>
       </p>
     </div>
