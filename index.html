@@ -55,18 +55,13 @@
       justify-content: center;
       flex-wrap: wrap; /* Quebra linha se necessário */
       text-align: center;
-      margin-top: 40px; /* margem para não colidir com menu fixo */
+      margin-top: 80px; /* margem para não colidir com menu fixo */
     }
 
     .logo {
-      display: flex;              /* centraliza conteúdo dentro da div */
-      justify-content: center;    /* alinha horizontalmente */
-      align-items: center;        /* alinha verticalmente */
-      height: auto;               /* altura da div*/
-      width: auto;                /* aumenta o tamanho da imagem */
-      height: auto;             /* mantém proporção */
-      margin-right: center;     /*Margem direita*/
-      margin-left: center;      /*Margem esquerda*/
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
     }
 
     @media (max-width: 600px) {
@@ -75,7 +70,7 @@
       }
   
       .logo {
-        margin-right: center;
+        margin-right: 0;
         margin-bottom: 10px;
       }
     }
@@ -628,11 +623,8 @@
   
   <section id="inicio">
 
-    <div class="logo">
-      <img src="imagem_circular_final.png" alt="logo" class="logo">
-    </div>
-
     <div class="titulo-principal">
+      <img src="imagem_circular_final.png" alt="Logo" class="logo">
       <h1>Bem-vindo à Igreja ABBA pai</h1>
     </div>
     
