@@ -48,7 +48,7 @@
       padding: 1rem 2rem;
       z-index: 1000;
     }
-
+    /*Titulo que aparece no inicio*/
     .titulo-principal {
       display: flex;
       align-items: center;
@@ -58,21 +58,141 @@
       margin-top: 80px; /* margem para não colidir com menu fixo */
     }
 
-    .logo {
-      height: 50px;
-      width: auto;
-      margin-right: 10px;
+    /* Garantindo que não colida com o menu */
+    .titulo-principal {
+      margin-top: 90px;
+      padding-top: 1rem;
     }
 
     @media (max-width: 600px) {
       .titulo-principal {
-      flex-direction: column;
+        margin-top: 80px;
+      }
+    }
+    
+
+    /* Mantenha apenas ESTA versão aprimorada: */
+    .logo-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      margin: 0; /* Resetando margens anteriores */
+    }
+
+    .logo:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 12px rgba(0, 119, 204, 0.3);
+    }
+
+    .logo-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      background-color: #0077cc;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      width: max-content;
+      max-width: 200px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .logo-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #e9ecee transparent transparent transparent;
+    }
+
+    .logo-container:hover .logo-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Ajustes de Responsividade */
+    @media (max-width: 768px) {
+      .logo {
+        height: 70px;
+        width: 70px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .titulo-principal {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        height: 65px;
+        width: 65px;
+        margin: 0 0 15px 0; /* Unificando as margens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        height: 60px;
+        width: 60px;
+        border-width: 2px;
       }
   
-      .logo {
-        margin-right: 0;
-        margin-bottom: 10px;
+      .logo-tooltip {
+        font-size: 0.7rem;
+        max-width: 150px;
       }
+    }
+
+    /* Garantindo espaçamento do título principal */
+    .titulo-principal {
+      margin-top: 90px;
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .titulo-principal {
+         margin-top: 80px;
+      }
+    }
+    /*Efeito de "pulse" logo*/
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .logo {
+      animation: pulse 3s infinite;
+    }
+
+    .logo:hover {
+      animation: none; /* Desativa o pulse no hover */
     }
 
     .nav-links {
@@ -299,7 +419,120 @@
       padding: 1rem;
       text-align: center;
     }
+    
+    /* Estilos aprimorados para a tabela */
+   .cultos-table {
+      width: 100%;
+      margin: 2rem 0;
+      border-collapse: collapse;
+      background-color: var(--section-bg);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
+    .cultos-table th,
+    .cultos-table td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .cultos-table th {
+      background-color: #0077cc;
+      color: white;
+      font-weight: 600;
+    }
+
+    .cultos-table tr:nth-child(even) {
+      background-color: rgba(0, 119, 204, 0.05);
+    }
+
+    .cultos-table tr:hover {
+      background-color: rgba(0, 119, 204, 0.1);
+    }
+
+    /* Estilos para o container do mapa */
+    .mapa-container {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .mapa-container h3 {
+      color: #0077cc;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .mapa-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* Proporção 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin: 1.5rem 0;
+     
+    }
+
+    .mapa-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .mapa-texto {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: var(--text-color);
+     font-weight: 500;
+    }
+
+    /* Responsividade Tabela */
+    @media (max-width: 768px) {
+      .cultos-table th,
+      .cultos-table td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+      }
+  
+      .mapa-container h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cultos-table {
+        font-size: 0.8rem;
+      }
+  
+      .mapa-texto {
+        font-size: 0.9rem;
+      }
+    }
+    /*Botão link Como chegar*/
+    .btn-mapa {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-mapa:hover {
+      background-color: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /*Nav menu*/
     nav {
       background:rgba(0, 119, 204, 0.8);
       color: #fff;
@@ -576,7 +809,99 @@
         width: 100%;
       }
     }
-    
+
+    /* Estilos para a seção de Sermões */
+    #Sermão {
+      background-color: var(--section-bg);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .pregacao {
+      background-color: var(--bg-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .pregacao:hover {
+      transform: translateY(-5px);
+    }
+
+    .pregacao-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(0,119,204,0.2);
+      padding-bottom: 0.5rem;
+    }
+
+    .pregacao-header h3 {
+      color: #0077cc;
+      margin: 0;
+    }
+
+    .pregacao-data {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .pregacao-imagem {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .pregacao-texto {
+      line-height: 1.6;
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .pregacao-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-pregacao {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .btn-pregacao:hover {
+      background-color: #005fa3;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .pregacao-links {
+        flex-direction: column;
+      }
+  
+      .btn-pregacao {
+        justify-content: center;
+      }
+  
+      .pregacao-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
   </style>
   
 
@@ -624,8 +949,11 @@
   <section id="inicio">
 
     <div class="titulo-principal">
-      <img src="imagem_circular_final.png" alt="Logo" class="logo">
-      <h1>Bem-vindo à Igreja ABBA pai</h1>
+      <div class="logo-container">
+        <img src="imagem_circular_final.png" alt="Logo ABBA Pai" class="logo" id="logo-interativo">
+        <div class="logo-tooltip">Seja bem-vindo à família ABBA Pai!</div>
+      </div>
+      <h1>Bem-vindo à Igreja ABBA Pai</h1>
     </div>
     
     <p>Um lugar de fé, esperança e amor. Junte-se a nós, vem ser família com a gente.</p>
@@ -702,25 +1030,50 @@
       <table class="cultos-table">
         <thead>
           <tr>
-            <th>Dia de culto</th>
-            <th>Tipo de culto</th>
+            <th>Dia</th>
+            <th>Horário</th>
+            <th>Tipo de Culto</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Todas as quartas-feiras</td>
+            <td>Quarta-feira</td>
+            <td>19:30h</td>
             <td>Quarta com Deus</td>
           </tr>
           <tr>
-            <td>Todos os sábados</td>
+            <td>Sábado</td>
+            <td>18:00h</td>
             <td>Culto Juvenil</td>
           </tr>
           <tr>
-            <td>Todos os domingos</td>
+            <td>Domingo</td>
+            <td>18:30h</td>
             <td>Culto da Família</td>
           </tr>
         </tbody>
       </table>
+    </div>
+  
+    <div class="mapa-container">
+      <h3>Nosso Local</h3>
+      <div class="mapa-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5361.883579749682!2d-43.36443422326598!3d-3.73240236586571!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x78ccd9907693b77%3A0xebe5ce7187c7ae02!2sMinist%C3%A9rio%20Apost%C3%B3lico%20Abba%20Pai!5e1!3m2!1spt-BR!2sbr!4v1746905965713!5m2!1spt-BR!2sbr" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                class="mapa-iframe">
+        </iframe> 
+      </div>
+      <a href="https://goo.gl/maps/SEUCODIGOAQUI" 
+          class="btn-mapa" 
+          target="_blank">
+          <i class="fas fa-directions"></i> Como chegar
+      </a>
+      <p class="mapa-texto">Av. Raimundo Oliveira, Chapadinha - MA, 65500-000</p>
     </div>
   </section>
   
@@ -831,6 +1184,48 @@
       'resizeDuration': 200,
       'wrapAround': true
     });
+  </script>
+
+  <script>
+    // Efeito especial ao clicar no logo
+    const logo = document.getElementById('logo-interativo');
+    
+    logo.addEventListener('click', function() {
+      // Cria um balão de fala temporário
+      const balao = document.createElement('div');
+      balao.textContent = 'Deus te abençoe! ✨';
+      balao.style.position = 'fixed';
+      balao.style.top = '50%';
+      balao.style.left = '50%';
+      balao.style.transform = 'translate(-50%, -50%)';
+      balao.style.backgroundColor = 'rgba(0, 119, 204, 0.9)';
+      balao.style.color = 'white';
+      balao.style.padding = '15px 25px';
+      balao.style.borderRadius = '30px';
+      balao.style.zIndex = '10000';
+      balao.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+      balao.style.animation = 'aparecerDesaparecer 2s forwards';
+      balao.style.fontWeight = 'bold';
+      
+      document.body.appendChild(balao);
+      
+      // Remove após a animação
+      setTimeout(() => {
+        balao.remove();
+      }, 2000);
+    });
+  
+    // Adiciona a animação CSS dinamicamente
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes aparecerDesaparecer {
+        0% { opacity: 0; transform: translate(-50%, -40%); }
+        20% { opacity: 1; transform: translate(-50%, -50%); }
+        80% { opacity: 1; transform: translate(-50%, -50%); }
+        100% { opacity: 0; transform: translate(-50%, -60%); }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
