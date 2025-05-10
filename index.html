@@ -194,6 +194,21 @@
     .logo:hover {
       animation: none; /* Desativa o pulse no hover */
     }
+  
+    /* === NAVEGAÇÃO PRINCIPAL === */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
 
     .nav-links {
       display: flex;
@@ -213,13 +228,100 @@
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s, transform 0.2s;
+      padding: 0.5rem 0;
+      position: relative;
     }
-
+ 
     nav a:hover {
       color: #ffcc00;
+      transform: scale(1.05);
+    }
+
+    /* === TOGGLE MENU PARA MOBILE === */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
       transform: scale(1.1);
     }
 
+    /* === ESTILOS PARA MOBILE === */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+        flex-wrap: wrap;
+      }
+  
+      .menu-toggle {
+        display: block;
+        order: 1;
+      }
+  
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        gap: 0;
+        margin-top: 1rem;
+      }
+  
+      nav.active .nav-links {
+        max-height: 500px;
+        padding: 1rem 0;
+      }
+  
+      nav a {
+        display: block;
+        padding: 0.8rem 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+  
+      .nav-right {
+        margin-left: 0;
+        order: 2;
+        width: auto;
+        margin-top: 1rem;
+      }
+  
+      /* Adiciona ícone dinâmico */
+      .menu-toggle .fa-bars {
+        display: inline;
+      }
+  
+      .menu-toggle .fa-times {
+        display: none;
+      }
+  
+      nav.active .menu-toggle .fa-bars {
+        display: none;
+      }
+  
+      nav.active .menu-toggle .fa-times {
+        display: inline;
+      }
+    }
+
+    /* === AJUSTES PARA TELAS PEQUENAS === */
+    @media (max-width: 480px) {
+      nav {
+        padding: 0.8rem;
+      }
+  
+      .nav-right {
+        gap: 0.8rem;
+      }
+    }
+    
     .theme-toggle {
       background: none;
       border: none;
@@ -531,167 +633,6 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    
-    /*Nav menu*/
-    nav {
-      background:rgba(0, 119, 204, 0.8);
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      flex-wrap: wrap;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 2rem 10%;
-      gap: 1rem;
-    }
-
-    .section {
-      flex: 1 1 300px;
-      background: #f4f4f4;
-      padding: 1rem;
-      border-radius: 8px;
-    }
-
-    img, video {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    footer {
-      background: #2e65ca;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    /* Telas grandes */
-    @media (min-width: 1200px) {
-      body {
-        font-size: 18px;
-      }
-    }
-
-    /* Tablets */
-    @media (max-width: 1199px) and (min-width: 768px) {
-      body {
-        font-size: 16px;
-      }
-
-      .container {
-        padding: 1.5rem 5%;
-      }
-    }
-
-    /* Celulares */
-    @media (max-width: 767px) {
-      body {
-        font-size: 14px;
-        padding: 1rem;
-      }
-    }
-    /* Adicione isso ao seu CSS existente */
-
-    /* Corrige problemas de overflow horizontal */
-    html, body {
-       width: 100%;
-       overflow-x: hidden;
-    }
-
-    /* Ajuste o padding do body para dispositivos móveis */
-    @media (max-width: 767px) {
-      body {
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-  
-      /* Ajuste adicional para o menu fixo */
-     section {
-        padding-top: 5rem; /* Reduz um pouco para mobile */
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-      }
-  
-      /* Garante que o conteúdo não fique escondido atrás do menu */
-     .titulo-principal {
-        margin-top: 70px; /* Ajuste para o menu fixo */
-        padding: 0 10px;
-      }
-    }
-
-    /* Garante que imagens e vídeos não ultrapassem a largura da tela */
-    img, video, iframe {
-      max-width: 100%;
-      height: auto;
-    }
-
-   /* Corrige possíveis problemas com tabelas em mobile */
-   .table-container {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    
-    }
-    /* Corrige zoom em inputs em iOS */
-    @media (max-width: 767px) {
-      input, textarea, button {
-        font-size: 16px; /* Evita zoom automático no iOS */
-      }
-  
-      /* Corrige altura de elementos em mobile */
-      select, input[type="text"], input[type="email"], textarea {
-         min-height: 44px; /* Tamanho mínimo para toque */
-      }
-}   
-
-    .container {
-        flex-direction: column;
-        padding: 1rem 2%;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        display: none;
-        gap: 0;
-    }
-
-    nav.active ul {
-        display: flex;
-    }
-
-    nav ul li {
-        border-top: 1px solid #555;
-        padding: 0rem 0;
-    }
 
      /*Video de momentos inportantes*/
     .video-wrapper {  
@@ -941,7 +882,12 @@
       <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
       </button>
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times" style="display:none"></i>
+      </button>
     </div>
+    
   </nav>
 
   
@@ -1068,7 +1014,7 @@
                 class="mapa-iframe">
         </iframe> 
       </div>
-      <a href="https://goo.gl/maps/SEUCODIGOAQUI" 
+      <a href="https://maps.app.goo.gl/YLTwngARLsoUgCSe6" 
           class="btn-mapa" 
           target="_blank">
           <i class="fas fa-directions"></i> Como chegar
@@ -1226,6 +1172,37 @@
       }
     `;
     document.head.appendChild(style);
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+  
+      // Adiciona ícones Font Awesome dinamicamente
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i><i class="fas fa-times" style="display:none"></i>';
+  
+      menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    
+        // Animação suave para rolar até o topo quando o menu é aberto
+        if (nav.classList.contains('active')) {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        }  
+      });
+  
+      // Fecha o menu ao clicar em um link (opcional)
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            nav.classList.remove('active');
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
