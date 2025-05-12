@@ -48,41 +48,39 @@
       padding: 1rem 2rem;
       z-index: 1000;
     }
+
     /*Titulo que aparece no inicio*/
     .titulo-principal {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap; /* Quebra linha se necessário */
       text-align: center;
-      margin-top: 80px; /* margem para não colidir com menu fixo */
-    }
-
-    /* Garantindo que não colida com o menu */
-    .titulo-principal {
-      margin-top: 90px;
-      padding-top: 1rem;
+      margin-top: 41px;/* margem para não colidir com menu fixo */
+      padding-top: 0rem;
+      transition: all 0.3s ease;
     }
 
     @media (max-width: 600px) {
       .titulo-principal {
-        margin-top: 80px;
+        margin-top: 60px;
       }
     }
     
-
     /* Mantenha apenas ESTA versão aprimorada: */
     .logo-container {
       position: relative;
       display: inline-block;
-      margin-bottom: 1rem;
+      margin-bottom: 0rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      z-index: 1001px; /* contexto de empilhamento */
     }
 
     .logo {
-      height: 80px;
-      width: 80px;
+      height: 92px;   /*Altura*/
+      width: 92px;   /*Largura*/
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -97,7 +95,7 @@
 
     .logo-tooltip {
       position: absolute;
-      bottom: 100%;
+      bottom: calc(100% + 10px); /* distância da logo */
       left: 50%;
       transform: translateX(-50%) translateY(-10px);
       background-color: #0077cc;
@@ -112,6 +110,7 @@
       max-width: 200px;
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1001; /* Garante que o tooltip fique acima de tudo */
     }
 
     .logo-tooltip::after {
@@ -134,8 +133,8 @@
     /* Ajustes de Responsividade */
     @media (max-width: 768px) {
       .logo {
-        height: 70px;
-        width: 70px;
+        height: 80px;
+        width: 80px;
       }
     }
 
@@ -146,16 +145,16 @@
       }
 
       .logo {
-        height: 65px;
-        width: 65px;
+        height: 75px;
+        width: 75px;
         margin: 0 0 15px 0; /* Unificando as margens */
       }
     }
 
     @media (max-width: 480px) {
       .logo {
-        height: 60px;
-        width: 60px;
+        height: 70px;
+        width: 70px;
         border-width: 2px;
       }
   
@@ -165,21 +164,6 @@
       }
     }
 
-    /* Garantindo espaçamento do título principal */
-    .titulo-principal {
-      margin-top: 90px;
-      padding-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      .titulo-principal {
-         margin-top: 80px;
-      }
-    }
     /*Efeito de "pulse" logo*/
     @keyframes pulse {
       0% { transform: scale(1); }
@@ -204,10 +188,12 @@
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
+      padding: 0.8rem 2rem; /* Reduzi o padding vertical */
       align-items: center;
       padding: 1rem 2rem;
       z-index: 1000;
       transition: all 0.3s ease;
+      min-height: 60px; /* Altura fixa para consistência */
     }
 
     .nav-links {
