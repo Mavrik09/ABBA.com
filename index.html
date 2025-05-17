@@ -640,40 +640,36 @@
         border: none;
     }
 
-    /* ===== ESTILOS PARA A SEÇÃO DE INSCRIÇÕES ===== */
-#inscrições {
-  text-align: center;
-  padding: 40px 20px;
-  background: var(--section-bg);
-}
+  /* ===== ESTILOS PARA A SEÇÃO DE INSCRIÇÕES ===== */
+     #inscrições {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--section-bg);
+    }
 
-#inscrições .photo-grid {
-  max-width: 600px;    /* Largura máxima do container */
-  margin: 0 auto;      /* Centraliza horizontalmente */
-  padding: 20px;
-  background: var(--section-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
+    #inscrições .photo-grid {
+      max-width: 600px; /* Largura máxima do container */
+      margin: 0 auto;   /* Centraliza horizontalmente */
+      padding: 20px;
+      background: var(--section-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-#inscrições .photo-grid img {
-  flex: 1 1 calc(50% - 1rem);  /* Duas por linha (menos gap) */
-  max-width: calc(50% - 1rem);
-  height: 250px;               /* Altura fixa */
-  object-fit: cover;           /* Corta mantendo proporção */
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid #0077cc;
-}
+    #inscrições .photo-grid img {
+      width: 100%;
+      max-width: 500px; /* Largura máxima da imagem */
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      border: 2px solid #0077cc; /* Borda azul (opcional) */
+    }
 
-#inscrições .photo-grid img:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 119, 204, 0.2);
-}
+    #inscrições .photo-grid img:hover {
+      transform: scale(1.02); /* Efeito de zoom suave */
+      box-shadow: 0 8px 16px rgba(0, 119, 204, 0.2);
+    }
+    
 
 /* Ajustes para mobile: imagem ocupa linha inteira */
 @media (max-width: 480px) {
