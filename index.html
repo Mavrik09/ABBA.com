@@ -830,10 +830,105 @@
         gap: 0.5rem;
       }
     }
+
+    #galeria {
+      padding: 20px 0;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .photo-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 15px;
+      padding: 10px 20px;
+      -webkit-overflow-scrolling: touch; /* Suave no iOS */
+    }
+
+    .photo-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .photo-grid::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    .photo-grid > * {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+    }
+
+    .photo-grid a, 
+    .photo-grid video {
+      width: 300px; /* Largura fixa para cada item */
+      height: 200px; /* Altura fixa */
+      display: block;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .photo-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .photo-grid video {
+      background: #000;
+    }
+
+    @media (max-width: 768px) {
+     .photo-grid a, 
+     .photo-grid video {
+       width: 250px;
+       height: 180px;
+     }
+    }
+
+    @media (max-width: 480px) {
+     .photo-grid {
+       gap: 10px;
+       padding: 10px;
+      }
+  
+     .photo-grid a, 
+     .photo-grid video {
+       width: 200px;
+       height: 150px;
+      }
+    }
+
+    .scroll-buttons {
+     display: flex;
+     justify-content: center;
+     gap: 20px;
+     margin-top: 15px;
+   }
+
+   .scroll-buttons button {
+     background: #0077cc;
+     color: white;
+     border: none;
+     padding: 8px 16px;
+     border-radius: 20px;
+     cursor: pointer;
+     transition: background 0.3s;
+   }
+
+   .scroll-buttons button:hover {
+    background: #005fa3;
+   }
+    
   </style>
   
-
-  </style>
    
   <!-- Redirecinonamento E-mail-->
   <script src="https://cdn.emailjs.com/dist/email.min.js"> </script> 
@@ -1027,6 +1122,11 @@
         <a href="https://www.instagram.com/reel/DJupBvMtAjn/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA=="target="_blank" data-lightbox="galeria">
           <img src="encontro.jpeg" alt="Evento">
         </a>
+    </div>
+    <div class="scroll-buttons">
+      <button class="scroll-left">&lt;</button>
+      <button class="scroll-right">&gt;</button>
+    </div>
   </section>
   
 
@@ -1192,6 +1292,16 @@
         });
       });
     });
+  
+   //Botões Galeria
+    document.querySelector('.scroll-left').addEventListener('click', () => {
+    document.querySelector('.photo-grid').scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    document.querySelector('.scroll-right').addEventListener('click', () => {
+    document.querySelector('.photo-grid').scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
   </script>
 </body>
 </html>
