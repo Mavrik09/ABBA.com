@@ -345,7 +345,7 @@
       width: 100%;
     }
 
-     /* Substitua o iframe atual por este */
+     /*  iframe  */
     .live-stream iframe {
        width: 100%;
        aspect-ratio: 16/9; /* Mantém a proporção 16:9 */
@@ -369,12 +369,16 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
       margin: 2rem 0;
+      
     }
 
     .photo-grid a {
       border-radius: 8px;
       overflow: hidden;
       transition: transform 0.3s;
+      overflow-x: auto; /* Habilita o scroll horizontal */
+      white-space: nowrap; /* Impede que os itens quebrem para a próxima linha */
+      padding: 10px 0; /* Espaçamento opcional */
     }
 
     .photo-grid a:hover {
